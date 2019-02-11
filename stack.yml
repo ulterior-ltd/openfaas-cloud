@@ -1,3 +1,7 @@
+provider:
+  name: faas
+functions:
+  helloworld:
     lang: python3
     handler: ./helloworld
     image: richsanders/helloworld:latest
