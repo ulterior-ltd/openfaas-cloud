@@ -1,0 +1,8 @@
+provider:
+  name: faas
+  gateway: http://10.1.10.215:31112
+functions:
+  helloworld:
+    lang: python3
+    handler: ./helloworld
+    image: richsanders/helloworld:latest
