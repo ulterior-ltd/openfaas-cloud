@@ -30,14 +30,14 @@ def handle(req):
     msg.attach(part1)
 
     try:
-         s = smtplib.SMTP(mailhost, 587)
-         s.set_debuglevel(level)
-         s.starttls()
-         s.login(me,pw)
-         s.sendmail(me, you, msg.as_string())
-         print('email sent')
-         s.quit()
-     except s.SMTPException:
+        s = smtplib.SMTP(mailhost, 587)
+        s.set_debuglevel(level)
+        s.starttls()
+        s.login(me,pw)
+        s.sendmail(me, you, msg.as_string())
+        print('email sent')
+        s.quit()
+    except s.SMTPException:
         print('Error')
-        s.quit() 
+        s.quit()
 
