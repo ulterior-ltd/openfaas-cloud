@@ -5,11 +5,3 @@ functions:
     lang: python3
     handler: ./helloworld
     image: richsanders/helloworld:latest
-
-  run-posh:
-    lang: powershell-http
-    handler: ./run-posh
-    image: richsanders/run-posh:latest
-    environment:
-      read_timeout: 60
-      write_timeout: 60
