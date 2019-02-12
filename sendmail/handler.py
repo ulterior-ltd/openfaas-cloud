@@ -15,6 +15,10 @@ def handle(req):
     data=req
     x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
 
+    if x.level:
+        level = 0
+    else:
+        level = x.level
     mailhost = smtpadd.read()
     me = mailadd.read()
     pw = mailpw.read()
@@ -31,7 +35,7 @@ def handle(req):
 
     try:
         s = smtplib.SMTP(mailhost, 587)
-        s.set_debuglevel(x.level)
+        s.set_debuglevel(level)
         s.starttls()
         s.login(me,pw)
         s.sendmail(me, you, msg.as_string())
