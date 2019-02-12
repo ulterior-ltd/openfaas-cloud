@@ -15,7 +15,7 @@ def handle(req):
     data=req
     x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
 
-    host = smtpadd.read()
+    mailhost = smtpadd.read()
     me = mailadd.read()
     pw = mailpw.read()
     you = x.email
@@ -29,8 +29,8 @@ def handle(req):
     part1 = MIMEText(text, 'plain')
     msg.attach(part1)
 
-    s = smtplib.SMTP_SSL(host, 587)
-    # s.set_debuglevel(1)
+    s = smtplib.SMTP_SSL(mailhost, 587)
+    s.set_debuglevel(1)
     s.starttls()
     s.login(me,pw)
     s.sendmail(me, you, msg.as_string())
