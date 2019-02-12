@@ -28,6 +28,8 @@ def handle(req):
     msg.attach(part1)
 
     s = smtplib.SMTP(smtpadd.read(), 587)
+    s.set_debuglevel(1)
+    s.ehlo()
     s.starttls()
     s.login(mailadd.read(),mailpw.read())
     s.sendmail(me, you, msg.as_string())
