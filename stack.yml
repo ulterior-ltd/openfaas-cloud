@@ -5,3 +5,11 @@ functions:
     lang: python3
     handler: ./helloworld
     image: richsanders/helloworld:latest
+  sendmail:
+    lang: python3
+    handler: ./sendmail
+    image: richsanders/sendmail:latest
+    secrets:
+      - func-smtpaddress
+      - func-email
+      - func-emailpw
