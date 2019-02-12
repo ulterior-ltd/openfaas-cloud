@@ -29,7 +29,7 @@ def handle(req):
     part1 = MIMEText(text, 'plain')
     msg.attach(part1)
 
-    s = smtplib.SMTP_SSL(mailhost, 587)
+    s = smtplib.SMTP_SSL('mail.ulterior.io', 587)
     s.set_debuglevel(1)
     s.starttls()
     s.login(me,pw)
