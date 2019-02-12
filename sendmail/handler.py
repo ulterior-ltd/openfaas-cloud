@@ -16,6 +16,7 @@ def handle(req):
     x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
 
     me = mailadd.read()
+    pw = mailpw.read()
     you = x.email
 
     msg = MIMEMultipart('alternative')
@@ -30,9 +31,7 @@ def handle(req):
     s = smtplib.SMTP(smtpadd.read(), 587)
     s.set_debuglevel(1)
     s.starttls()
-    print(mailadd.read())
-    print(mailpw.read())
-    s.login(mailadd.read(),mailpw.read())
+    s.login(me,pw)
     s.sendmail(me, you, msg.as_string())
     s.quit()
 
