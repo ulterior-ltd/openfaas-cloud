@@ -28,7 +28,7 @@ def handle(req):
     part1 = MIMEText(text, 'plain')
     msg.attach(part1)
 
-    s = smtplib.SMTP(smtpadd.read(), 587)
+    s = smtplib.SMTP_SSL(smtpadd.read(), 587)
     # s.set_debuglevel(1)
     s.starttls()
     s.login(me,pw)
