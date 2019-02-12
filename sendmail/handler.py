@@ -29,9 +29,10 @@ def handle(req):
 
     s = smtplib.SMTP(smtpadd.read(), 587)
     s.set_debuglevel(1)
-    s.ehlo()
     s.starttls()
-    s.login(mailadd.read(),mailpw.read(),*)
+    print(mailadd.read())
+    print(mailpw.read())
+    s.login(mailadd.read(),mailpw.read())
     s.sendmail(me, you, msg.as_string())
     s.quit()
 
