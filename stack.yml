@@ -10,6 +10,4 @@ functions:
     handler: ./sendmail
     image: richsanders/sendmail:latest
     secrets:
-      - func-smtpaddress
-      - func-email
-      - func-emailpw
+      - openfaas-cloud
