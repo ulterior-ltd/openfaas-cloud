@@ -24,12 +24,12 @@ def handle(req):
     msg['To'] = you
 
     text = x.text
-    part1 = MIMEText(str(text), 'plain')
+    part1 = MIMEText(text, 'plain')
     msg.attach(part1)
 
     s = smtplib.SMTP(smtpadd.read(), 587)
     s.starttls()
-    s.login(mailadd.read().decode('UTF-8', 'ignore'), mailpw.read().decode('UTF-8', 'ignore'))
+    s.login(mailadd.read().as_string(), mailpw.read().as_string())
     s.sendmail(me, you, msg.as_string())
     s.quit()
 
