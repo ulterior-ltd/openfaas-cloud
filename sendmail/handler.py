@@ -29,7 +29,7 @@ def handle(req):
 
     s = smtplib.SMTP(smtpadd.read(), 587)
     s.starttls()
-    s.login(str(mailadd.read()), str(mailpw.read()))
+    s.login(mailadd.read().decode('UTF-8', 'ignore'), mailpw.read().decode('UTF-8', 'ignore'))
     s.sendmail(me, you, msg.as_string())
     s.quit()
 
