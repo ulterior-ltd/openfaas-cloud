@@ -14,7 +14,7 @@ def handle(req):
 
     data=req
     x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
-    if isinstance(x, level):
+    if isinstance(X, level):
         x.level = 0
     else:
         x.level
