@@ -31,7 +31,7 @@ def handle(req):
 
     try:
         s = smtplib.SMTP(mailhost, 587)
-        s.set_debuglevel(level)
+        s.set_debuglevel(x.level)
         s.starttls()
         s.login(me,pw)
         s.sendmail(me, you, msg.as_string())
