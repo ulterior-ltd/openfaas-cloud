@@ -35,9 +35,9 @@ def handle(req):
         s.starttls()
         s.login(me,pw)
         s.sendmail(me, you, msg.as_string())
-        print('email sent')
         s.quit()
+	print('email sent')
     except s.SMTPException:
-        print('Error')
         s.quit()
+	print('error')
 
