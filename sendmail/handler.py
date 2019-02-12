@@ -30,6 +30,7 @@ def handle(req):
     msg.attach(part1)
 
     s = smtplib.SMTP(mailhost, 587)
+    print(mailhost)
     s.set_debuglevel(1)
     s.starttls()
     s.login(me,pw)
