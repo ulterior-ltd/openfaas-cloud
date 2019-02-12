@@ -14,11 +14,11 @@ def handle(req):
 
     data=req
     x = json.loads(data, object_hook=lambda d: namedtuple('X', d.keys())(*d.values()))
-
-    if x.level:
-        level = 0
+    if isinstance(x, level):
+        x.level = 0
     else:
-        level = x.level
+        x.level
+    
     mailhost = smtpadd.read()
     me = mailadd.read()
     pw = mailpw.read()
