@@ -31,7 +31,7 @@ def handle(req):
     s.set_debuglevel(1)
     s.ehlo()
     s.starttls()
-    s.login(mailadd.read(),mailpw.read())
+    s.login(mailadd.read(),mailpw.read(),*,initial_response_ok=True)
     s.sendmail(me, you, msg.as_string())
     s.quit()
 
