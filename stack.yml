@@ -11,3 +11,9 @@ functions:
     image: richsanders/sendmail:latest
     secrets:
       - openfaas-cloud
+  flask-sendmail:
+    lang: python3-flask
+    handler: ./flask-sendmail
+    image: richsanders/flask-sendmail:latest
+    secrets:
+      - openfaas-cloud
