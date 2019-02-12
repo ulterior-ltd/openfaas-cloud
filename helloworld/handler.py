@@ -1,3 +1,3 @@
 def handle(req):
 
-    return req
+    return print(req)
